@@ -1,0 +1,40 @@
+# =========================
+# Python / Backend
+# =========================
+# Byte-compiled / optimized / DLL files
+backend/__pycache__/
+backend/*.py[cod]
+backend/*$py.class
+
+**/__pycache__/
+**/*.py[cod]
+
+# Virtual environments
+backend/env/
+backend/venv/
+backend/ENV/
+backend/.env
+backend/.venv/
+
+# Logs and databases
+backend/*.log
+backend/*.sqlite3
+
+backend/app/vector_store/
+backend/logs/
+# IDE / Editor
+backend/.vscode/
+backend/.idea/
+backend/*.swp
+backend/*.swo
+
+# =========================
+# Frontend (JS / HTML)
+# =========================
+# Editor / OS files
+frontend/.vscode/
+frontend/.idea/
+frontend/*.swp
+frontend/*.swo
+frontend/.DS_Store
+frontend/Thumbs.db

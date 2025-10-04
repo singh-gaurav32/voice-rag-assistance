@@ -1,0 +1,4 @@
+{
+  "RETURNS": ["return", "refund", "exchange", "replace"],
+  "ORDER_STATUS": ["order", "status", "track", "shipment"]
+}

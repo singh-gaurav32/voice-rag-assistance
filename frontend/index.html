@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>STT + TTS Demo</title>
+  </head>
+  <body>
+    <h2>🎤 Simple STT + TTS Demo</h2>
+
+    <button id="startBtn">Start Listening</button>
+    <p><strong>You said:</strong> <span id="result"></span></p>
+    <button id="speakBtn">Speak Response</button>
+
+    <script>
+      // -------- Speech to Text --------
+      const startBtn = document.getElementById("startBtn");
+      const resultEl = document.getElementById("result");
+
+      const SpeechRecognition =
+        window.SpeechRecognition || window.webkitSpeechRecognition;
+      const recognition = new SpeechRecognition();
+      recognition.lang = "en-US";
+      recognition.interimResults = false;
+
+      startBtn.onclick = () => {
+        recognition.start();
+      };
+
+      recognition.onresult = (event) => {
+        const transcript = event.results[0][0].transcript;
+        resultEl.textContent = transcript;
+      };
+
+      recognition.onerror = (event) => {
+        alert("Error: " + event.error);
+      };
+
+      // -------- Text to Speech --------
+      const speakBtn = document.getElementById("speakBtn");
+      speakBtn.onclick = () => {
+        const text = "Hello! You just said: " + resultEl.textContent;
+        const utterance = new SpeechSynthesisUtterance(text);
+        speechSynthesis.speak(utterance);
+      };
+    </script>
+  </body>
+</html>
