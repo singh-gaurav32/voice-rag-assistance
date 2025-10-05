@@ -1,46 +1,17 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
-    <title>STT + TTS Demo</title>
+    <meta charset="UTF-8" />
+    <title>Voice RAG Assistant</title>
+    <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <h2>🎤 Simple STT + TTS Demo</h2>
+    <h1>Voice RAG Customer-Care Assistant</h1>
+    <button id="start-btn">🎤 Start Talking</button>
+    <button id="stop-btn">Stop Listening</button>
+    <p id="user-text"></p>
+    <p id="assistant-text"></p>
 
-    <button id="startBtn">Start Listening</button>
-    <p><strong>You said:</strong> <span id="result"></span></p>
-    <button id="speakBtn">Speak Response</button>
-
-    <script>
-      // -------- Speech to Text --------
-      const startBtn = document.getElementById("startBtn");
-      const resultEl = document.getElementById("result");
-
-      const SpeechRecognition =
-        window.SpeechRecognition || window.webkitSpeechRecognition;
-      const recognition = new SpeechRecognition();
-      recognition.lang = "en-US";
-      recognition.interimResults = false;
-
-      startBtn.onclick = () => {
-        recognition.start();
-      };
-
-      recognition.onresult = (event) => {
-        const transcript = event.results[0][0].transcript;
-        resultEl.textContent = transcript;
-      };
-
-      recognition.onerror = (event) => {
-        alert("Error: " + event.error);
-      };
-
-      // -------- Text to Speech --------
-      const speakBtn = document.getElementById("speakBtn");
-      speakBtn.onclick = () => {
-        const text = "Hello! You just said: " + resultEl.textContent;
-        const utterance = new SpeechSynthesisUtterance(text);
-        speechSynthesis.speak(utterance);
-      };
-    </script>
+    <script src="main.js"></script>
   </body>
 </html>
