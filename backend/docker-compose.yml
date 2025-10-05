@@ -10,3 +10,5 @@ services:
       - .env
     command: uv run uvicorn app.main:app --host 0.0.0.0 --port 8080
     restart: no
+    volumes:
+      - ./:/app # Mount local folder to /app in container
