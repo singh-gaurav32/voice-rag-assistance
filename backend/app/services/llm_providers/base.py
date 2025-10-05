@@ -30,13 +30,14 @@ class LLMBase(ABC):
         context = ""
         for chunk in retrieved_chunks:
             doc_nice_name = chunk["doc"].replace("_", " ").replace(".md", "").title()
-            context += f"[{chunk['doc']}] (from {doc_nice_name})\n"
+            context += f"[{chunk['doc']}] (from {doc_nice_name + "document"})\n"
 
         prompt = f"""
             You are a helpful customer support assistant.
 
             Use the following context to answer the user question.
             Always mention the source document naturally in your answer.
+            Explicitly cite the document start with as per our documtation {doc_nice_name}.
 
             Context:
             {context}
