@@ -23,7 +23,7 @@ with open(METADATA_PATH, "rb") as f:
 # Embedding model
 # -------------------------------
 start_time = time.time()
-model = SentenceTransformer("all-MiniLM-L6-v2", device="mps") 
+model = SentenceTransformer("all-MiniLM-L6-v2") 
 end_time = time.time()
 print(f"[INFO] Loaded embedding model in {end_time - start_time:.3f} seconds")
 

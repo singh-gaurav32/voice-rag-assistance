@@ -35,7 +35,7 @@ class RAGService:
         """Initialize FAISS index, metadata, and embedding model."""
         import time
         start = time.time()
-        self.model = SentenceTransformer(EmbeddingModels.MINI_LM, device="mps")
+        self.model = SentenceTransformer(EmbeddingModels.MINI_LM, device="cpu")
         end = time.time()
         logger.log(f"[INFO] Loaded embedding model in {end-start:.3f} seconds")
         
